@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,      /* Add this line */
+    "declaration": true,    /* Required when composite is true */
+    "outDir": "../../dist/out-tsc",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"]
+}

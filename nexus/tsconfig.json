@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/nexus-e2e"
+    },
+    {
+      "path": "./apps/nexus"
+    },
+    {
+      "path": "./apps/finance-e2e"
+    },
+    {
+      "path": "./apps/finance"
+    },
+    {
+      "path": "./libs/shared-utils"
+    },
+    {
+      "path": "./apps/shell-e2e"
+    },
+    {
+      "path": "./apps/shell"
+    }
+  ]
+}
