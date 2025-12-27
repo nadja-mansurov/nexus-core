@@ -23,6 +23,12 @@
     },
     {
       "path": "./apps/shell"
+    },
+    {
+      "path": "./apps/finance-dashboard-e2e"
+    },
+    {
+      "path": "./apps/finance-dashboard"
     }
   ]
 }

@@ -2,3 +2,4 @@
 
 export { formatCurrency } from './lib/format-currency';
 export { CURRENCIES } from './lib/currencies.const';
+export { getTheme, setTheme } from './lib/theme-state';
