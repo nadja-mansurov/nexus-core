@@ -3,18 +3,29 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 
+const FINANCE_APP_URL = process.env.FINANCE_APP_URL || 'http://localhost:3001';
+
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-  // Use this to set Nx-specific options
-  // See: https://nx.dev/recipes/next/next-config-setup
   nx: {},
+  async rewrites() {
+    return [
+      {
+        // When user goes to /finance...
+        source: '/finance',
+        // ...proxy them to the finance app's /finance route
+        destination: `${FINANCE_APP_URL}/finance`,
+      },
+      {
+        source: '/finance/:path*',
+        destination: `${FINANCE_APP_URL}/finance/:path*`,
+      },
+    ];
+  },
 };
 
-const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
-];
-
-module.exports = composePlugins(...plugins)(nextConfig);
+// composePlugins allows you to wrap your config with Nx's logic 
+// and any other plugins like withSentry or withBundleAnalyzer
+module.exports = composePlugins(withNx)(nextConfig);
