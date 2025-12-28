@@ -31,7 +31,7 @@
     "../shell/.next/types/**/*.ts",
     "../dist/shell/.next/types/**/*.ts",
     "next-env.d.ts"
-  ],
+, "../finance-dashboard/src/app/components/logout-button.tsx"  ],
   "exclude": [
     "out-tsc",
     "dist",

@@ -16,8 +16,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      // TypeScript needs to know this app can use this alias
+      "@shared/shared-utils": ["../../libs/shared-utils/src/index.ts"]
     },
     "outDir": "dist",
     "rootDir": "src",

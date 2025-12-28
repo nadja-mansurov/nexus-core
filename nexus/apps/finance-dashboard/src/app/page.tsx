@@ -1,11 +1,13 @@
-import styles from './page.module.css';
+import { LogoutButton } from './components/logout-button';
 
+import styles from './page.module.css';
 export default function Index() {
   /*
    * Replace the elements below with your own.
    *
    * Note: The corresponding styles are in the ./index.css file.
    */
+
   return (
     <div className={styles.page}>
       <div className="wrapper">
@@ -16,7 +18,7 @@ export default function Index() {
               Welcome @nexus/finance-dashboard 👋
             </h1>
           </div>
-
+          <LogoutButton />
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>
