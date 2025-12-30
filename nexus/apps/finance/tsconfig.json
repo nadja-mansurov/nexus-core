@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@shared/shared-utils": ["libs/shared-utils/src/index.ts"]
+      "@shared/shared-utils": ["libs/shared-utils/src/index.ts"],
+      "@shared/ui-shared": ["libs/ui-shared/src/index.ts"]
     },
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"

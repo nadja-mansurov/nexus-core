@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
     "noEmit": true,
@@ -16,11 +16,14 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@shared/shared-utils": ["../../libs/shared-utils/src/index.ts"],
+      "@shared/ui-shared": ["../../libs/ui-shared/src/index.ts"]
     },
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "../../",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -28,10 +31,13 @@
     "src/**/*.tsx",
     "src/**/*.js",
     "src/**/*.jsx",
-    "../shell/.next/types/**/*.ts",
-    "../dist/shell/.next/types/**/*.ts",
+    "../../libs/ui-shared/src/**/*.ts",
+    "../../libs/ui-shared/src/**/*.tsx",
+    "../../libs/shared-utils/src/**/*.ts",
+    "../../libs/shared-utils/src/**/*.tsx",
+    "../../dist/apps/shell/.next/types/**/*.ts",
     "next-env.d.ts"
-, "../finance-dashboard/src/app/components/logout-button.tsx"  ],
+  ],
   "exclude": [
     "out-tsc",
     "dist",
