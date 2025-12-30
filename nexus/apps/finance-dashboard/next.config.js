@@ -10,6 +10,7 @@ const nextConfig = {
   // Use this to set Nx-specific options
   // See: https://nx.dev/recipes/next/next-config-setup
   nx: {},
+  transpilePackages: ['@shared/shared-utils'],
   basePath: '/finance',
   // This ensures assets (JS/CSS) are loaded from the correct sub-path
   assetPrefix: '/finance',

@@ -29,6 +29,7 @@
 
     /* Path Mapping */
     "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@shared/shared-utils": ["libs/shared-utils/src/index.ts"]
     }
