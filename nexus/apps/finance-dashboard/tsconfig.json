@@ -20,10 +20,11 @@
     "paths": {
       "@/*": ["./src/*"],
       // TypeScript needs to know this app can use this alias
-      "@shared/shared-utils": ["../../libs/shared-utils/src/index.ts"]
+      "@shared/shared-utils": ["../../libs/shared-utils/src/index.ts"],
+      "@shared/ui-shared": ["../../libs/ui-shared/src/index.ts"]
     },
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "../../",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -31,7 +32,10 @@
     "src/**/*.tsx",
     "src/**/*.js",
     "src/**/*.jsx",
-    "../../apps/finance-dashboard/.next/types/**/*.ts",
+    "../../libs/ui-shared/src/**/*.ts",
+    "../../libs/ui-shared/src/**/*.tsx",
+    "../../libs/shared-utils/src/**/*.ts",
+    "../../libs/shared-utils/src/**/*.tsx",
     "../../dist/apps/finance-dashboard/.next/types/**/*.ts",
     "next-env.d.ts"
   ],

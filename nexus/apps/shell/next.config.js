@@ -19,6 +19,7 @@ const nextConfig = {
       resolveAlias: {
         // Use path.join with __dirname to create an absolute path
         '@shared/shared-utils': path.join(__dirname, '../../libs/shared-utils/src/index.ts'),
+        '@shared/ui-shared': path.join(__dirname, '../../libs/ui-shared/src/index.ts'),
       },
     },
   },

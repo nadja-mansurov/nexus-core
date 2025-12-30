@@ -1,6 +1,7 @@
 'use client'; // This marks it as a Client Component
 
 import { emitLogout } from '@shared/shared-utils';
+import { Button } from '@shared/ui-shared';
 
 export function LogoutButton() {
   const handleClick = () => {
@@ -9,11 +10,10 @@ export function LogoutButton() {
   };
 
   return (
-    <button 
+    <Button 
       onClick={handleClick}
-      className="cursor-pointer bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
     >
       Logout
-    </button>
+    </Button>
   );
 }

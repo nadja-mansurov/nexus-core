@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 const AUTH_CHANNEL = 'auth_stream';
 
 export const emitLogout = () => {
@@ -13,10 +15,22 @@ export const emitLogout = () => {
 };
 
 export const useAuthSync = (onLogout: () => void) => {
-  if (typeof window !== 'undefined') {
+  useEffect(() => {
+    // Only set up in browser environment
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     const channel = new BroadcastChannel(AUTH_CHANNEL);
     channel.onmessage = (event) => {
-      if (event.data === 'LOGOUT') onLogout();
+      if (event.data === 'LOGOUT') {
+        onLogout();
+      }
     };
-  }
+
+    // Cleanup function to close the channel
+    return () => {
+      channel.close();
+    };
+  }, [onLogout]);
 };
