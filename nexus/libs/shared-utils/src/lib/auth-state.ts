@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect } from 'react';
 
 const AUTH_CHANNEL = 'auth_stream';
