@@ -1,14 +1,9 @@
-import { formatCurrency, CURRENCIES } from '@shared/shared-utils';
-
 export default function Index() {
   /*
    * Replace the elements below with your own.
    *
    * Note: The corresponding styles are in the ./index.tailwind file.
    */
-  const amount = 1000;
-  const formattedAmount = formatCurrency(amount, 'USD' as keyof typeof CURRENCIES);
-  const formattedAmountAED = formatCurrency(amount, 'AED' as keyof typeof CURRENCIES);
   return (
     <div>
       <div className="wrapper">
@@ -19,9 +14,6 @@ export default function Index() {
               Welcome @nexus/finance 👋
             </h1>
           </div>
-
-          <p>Formatted amount USD: {formattedAmount}</p>
-          <p dir="rtl">المبلغ المنسق بالدرهم الإماراتي: {formattedAmountAED}</p>
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>

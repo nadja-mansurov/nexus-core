@@ -1,4 +1,5 @@
 import './global.css';
+import { ThemeProvider } from '@shared/ui-shared';
 
 export const metadata = {
   title: 'Welcome to finance-dashboard',
@@ -11,8 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="ar">
+      <body>
+        <ThemeProvider lang="ar">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
