@@ -6,7 +6,8 @@ export const getTheme = () => {
 };
 
 export const setTheme = (theme: string) => {
-  localStorage.setItem('theme', theme);
-
-  window.dispatchEvent(new Event('theme-changed'));
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('user-theme', theme);
+    window.dispatchEvent(new Event('theme-changed'));
+  }
 };
