@@ -2,6 +2,7 @@ import { LogoutButton } from './components/logout-button';
 import { formatCurrency, CURRENCIES } from '@shared/shared-utils';
 
 import styles from './page.module.css';
+import { ThemeToggle } from './components/toggle-theme';
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -23,6 +24,7 @@ export default function Index() {
             </h1>
           </div>
           <LogoutButton />
+          <ThemeToggle />
           <div id="hero" className="rounded">
             <div className="text-container">
               <p>Formatted amount USD: {formattedAmount}</p>
