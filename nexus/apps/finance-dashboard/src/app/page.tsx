@@ -1,8 +1,7 @@
-import { LogoutButton } from './components/logout-button';
 import { formatCurrency, CURRENCIES } from '@shared/shared-utils';
 
 import styles from './page.module.css';
-import { ThemeToggle } from './components/toggle-theme';
+import { UserHeader } from '@shared/ui-shared';
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -17,14 +16,13 @@ export default function Index() {
     <div className={styles.page}>
       <div className="wrapper">
         <div className="container">
+          <UserHeader />
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
               Welcome @nexus/finance-dashboard 👋
             </h1>
           </div>
-          <LogoutButton />
-          <ThemeToggle />
           <div id="hero" className="rounded">
             <div className="text-container">
               <p>Formatted amount USD: {formattedAmount}</p>

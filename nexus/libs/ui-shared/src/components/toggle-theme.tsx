@@ -5,7 +5,7 @@ import { useThemeStore } from '@shared/shared-utils';
 import { Button } from '@shared/ui-shared';
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useThemeStore();
+  const { theme, toggleTheme } = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
   // Prevent Hydration Mismatch: 
@@ -15,11 +15,7 @@ export function ThemeToggle() {
   }, []);
 
   const onClick = () => {
-    if (theme === 'light') {
-        setTheme('dark');
-    } else {
-        setTheme('light');
-    }
+    toggleTheme();
   };
   
   if (!mounted) {
