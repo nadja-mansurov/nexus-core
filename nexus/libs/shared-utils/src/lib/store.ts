@@ -1,48 +1,42 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { getTheme, setTheme as setThemeStorage } from './theme-state';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { immer } from 'zustand/middleware/immer';
 
-export const useThemeStore = () => {
-    const [theme, setThemeState] = useState<string>(() => {
-        if (typeof window !== 'undefined') {
-            return getTheme();
-        }
-        return 'light';
-    });
+type Theme = 'light' | 'dark';
 
-    // Sync with localStorage changes from other tabs/windows
-    useEffect(() => {
-        if (typeof window === 'undefined') {
-            return;
-        }
+interface ThemeState {
+  theme: Theme;
+  settings: {
+    notifications: boolean;
+    fontSize: number;
+  };
+  toggleTheme: () => void;
+  updateFontSize: (size: number) => void;
+}
 
-        const handleThemeChange = () => {
-            setThemeState(getTheme());
-        };
-
-        // Listen for theme changes
-        window.addEventListener('theme-changed', handleThemeChange);
-
-        // Also listen for storage events (cross-tab sync)
-        window.addEventListener('storage', (e) => {
-            if (e.key === 'user-theme' || e.key === 'theme') {
-                handleThemeChange();
-            }
-        });
-
-        return () => {
-            window.removeEventListener('theme-changed', handleThemeChange);
-        };
-    }, []);
-
-    const setTheme = useCallback((newTheme: string) => {
-        setThemeStorage(newTheme);
-        setThemeState(newTheme);
-    }, []);
-
-    return {
-        theme,
-        setTheme,
-    };
-};
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    immer((set) => ({
+      theme: 'light',
+      settings: {
+        notifications: true,
+        fontSize: 14,
+      },
+      toggleTheme: () =>
+        set((state) => {
+          // With Immer, you can mutate directly!
+          state.theme = state.theme === 'light' ? 'dark' : 'light';
+        }),
+      updateFontSize: (size) =>
+        set((state) => {
+          // No need to spread nested objects (...state.settings)
+          state.settings.fontSize = size;
+        }),
+    })),
+    {
+      name: 'theme-storage',
+    }
+  )
+);

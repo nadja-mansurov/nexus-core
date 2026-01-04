@@ -5,3 +5,4 @@ export { CURRENCIES } from './lib/currencies.const';
 export { getTheme, setTheme } from './lib/theme-state';
 export { emitLogout, useAuthSync } from './lib/auth-state';
 export { useThemeStore } from './lib/store';
+export { useUser, useAuthStatus } from './lib/use-auth-store';
